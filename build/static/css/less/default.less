@@ -1,0 +1,91 @@
+@import "normalize";
+/* default style begin */
+@bg-color: #FFF;
+@default-border-color: #BABABA;
+@font-color: #333;
+@layout-bg-color: #F4F4F4;
+
+@images-path: "../images";
+
+/* layout */
+body {
+    font-family: "Arial";
+    font-size: 12px;
+    background-color: @bg-color;
+    color: @font-color;
+}
+
+ul,li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: @layout-bg-color;
+  height: 40px;
+  border-bottom: 1px solid #BABABA;
+  padding: 10px;
+  position: relative;
+  .logo {
+    position: absolute;
+    left: 10px;
+    line-height: 40px;
+    font-size: 30px;
+  }
+  .search {
+    position: absolute;
+    right: 15px;
+    top: 20px;
+    .ui-text {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    input {
+      border: 1px solid #BABABA;
+      background-color: #FFF;
+      width: 200px;
+      height: 28px;
+      line-height: 28px;
+      margin-left: 10px;
+      padding-left: 5px;
+    }
+  }
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: @layout-bg-color;
+  line-height: 30px;
+  border-top: 1px solid #BABABA;
+  text-align: center;
+}
+
+.mail-menu {
+  line-height: 24px;
+  width: 200px;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  ul {
+    margin: 5px;
+    li {
+      border-bottom: 1px solid #BABABA;
+    }
+  }
+}
+
+.mail-main {
+  margin: 0 0 0 200px;
+}
+
+.mail-list {
+  line-height: 24px;
+  margin: 5px;
+  li {
+    border-bottom: 1px solid #BABABA;
+  }
+}
