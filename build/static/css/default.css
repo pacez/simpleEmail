@@ -429,6 +429,7 @@ li {
 }
 .mail-menu ul li {
   border-bottom: 1px solid #BABABA;
+  padding-left: 5px;
 }
 .mail-main {
   margin: 0 0 0 200px;
@@ -439,4 +440,45 @@ li {
 }
 .mail-list li {
   border-bottom: 1px solid #BABABA;
+  padding-left: 5px;
+}
+.mail-main-container {
+  padding: 5px;
+}
+.mail-main-container .mail-info .mail-item {
+  overflow: hidden;
+  line-height: 20px;
+  padding: 2px 0;
+}
+.mail-main-container .mail-info .mail-item .mail-sub-title {
+  float: left;
+  font-weight: bold;
+  width: 55px;
+}
+.mail-main-container .mail-info .mail-item .mail-recipient {
+  float: left;
+  height: 18px;
+  line-height: 18px;
+  padding: 0 3px;
+  border-radius: 3px;
+  border: 1px solid #BABABA;
+  margin-right: 3px;
+  background-color: #F4F4F4;
+}
+.mail-main-container .mail-info .mail-item .mail-attach {
+  margin-right: 10px;
+}
+.mail-main-container .mail-info .mail-item .mail-attach a {
+  color: #4B64A4;
+}
+.mail-main-container .mail-info .mail-item .mail-attach a:hover {
+  text-decoration: underline;
+}
+.mail-main-container .mail-content {
+  border: 1px solid #BABABA;
+  background-color: #F9F9F9;
+  height: 300px;
+  overflow: hidden;
+  margin-top: 15px;
+  padding: 10px;
 }

@@ -8,6 +8,7 @@
         <!--[if lt IE 9]>
         <script type="text/javascript" src="../static/js/lib//html5shiv.min.js"></script>
         <![endif]-->
+        <script type="text/javascript" src="../static/js/lib/jquery.min.js"></script>
         <script type="text/javascript" src="../static/js/lib/angular.js"></script>
         <script type="text/javascript" src="../static/js/lib/angular-route.js"></script>
         <script type="text/javascript" src="../static/js/app/main.js"></script>
@@ -15,7 +16,7 @@
     <body ng-app="app">
         <template-header></template-header>
         <div class="content">
-            <div class="mail-menu" ng-controller="mailMenu">
+            <div class="mail-menu" ng-controller="mailMenuCtrl">
                 <mail-menu></mail-menu>
             </div>
             <div class="mail-main">
