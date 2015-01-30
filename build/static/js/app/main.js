@@ -3,7 +3,7 @@
 */
 
 var mailList=[];
-    for(var i=1; i<21; i++){
+    for(var i=1; i<41; i++){
       mailList.push({
         id: i,
         subject: i+' Thanks for you',
@@ -25,6 +25,30 @@ var mailList=[];
       });
     }
 
+var draftList=[];
+    for(var i=1; i<6; i++){
+      draftList.push({
+        id: i,
+        subject: i+' Draft',
+        sentTime: '2015-01-29 12:10',
+        from:{name:'Pace Zhong', mail:'pacez@domain-inc.com'},
+        to:[
+          {name:'Apple Liu', mail:'nancyl@domain-inc.com'},
+          {name:'Peter Hu', mail:'spardal@domain-inc.com'}
+        ],
+        cc:[
+          {name:'Alice Zhu', mail:'clairl@domain-inc.com'},
+          {name:'Jane Zhong', mail:'chirstz@domain-inc.com'}
+        ],
+        content: 'Content_'+i,
+        attachment: [
+          { label:'canglaoshiwuma.avi',link:'http://cctv/download/canglaoshiwuma.avi'},
+          { label:'boduoyejieyi.avi',link:'http://cctv/download/boduoyejieyi.avi'}
+        ]
+      });
+    }
+    
+
 
 /*
 * The main enter
@@ -38,6 +62,9 @@ app.config(['$routeProvider',function($routeProvider) {
   $routeProvider.when('/', {
     templateUrl: '/build/static/view/mailList.html',
     controller: 'mailListCtrl'
+  }).when('/draft',{
+    templateUrl: '/build/static/view/draft.html',
+    controller: 'draftListCtrl'
   }).when('/mailDetail/:id',{
     templateUrl: '/build/static/view/mailDetail.html',
     controller: 'mailListCtrl'
@@ -50,6 +77,11 @@ app.controller('mailListCtrl', function($scope) {
   $scope.mails=mailList;
 });
 
+app.controller('draftListCtrl', function($scope) {
+  //实际开发，通过异步请求获取数据，且数据结构还可以优化，仅仅构建列表不需要内容，附件等等。
+  $scope.drafts=draftList;
+});
+
 app.controller('mailDetailCtrl', function($scope,$routeParams) {
   $scope.id = $routeParams.id;
   //实际开发过程中此处应该通过id异步请求邮件详情数据。
@@ -59,6 +91,7 @@ app.controller('mailDetailCtrl', function($scope,$routeParams) {
 
 app.controller('mailMenuCtrl', function($scope) {
   $scope.mails=mailList;
+  $scope.drafts=draftList;
 });
 
 //定义指令
@@ -103,9 +136,12 @@ app.filter('mailFilter',function () {
 });
 
 //设置mail内容区域高度
-var setMailContentHeight=function(){
-  var $mailContent=$("#mailContent"),
-      deviator=$("#footer").height()+35,
+var setMainHeight=function(id,deviator){
+  var $mailContent=$("#"+id),
+      deviator=$("#footer").height()+35+(deviator ? deviator : 0),
       getMailContentHeight=$(window).height()-$mailContent.offset().top-deviator;
   $mailContent.height(getMailContentHeight);
-}
+};
+$(function(){
+  setMainHeight('mailMain',60);
+});

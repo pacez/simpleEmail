@@ -433,6 +433,7 @@ li {
 }
 .mail-main {
   margin: 0 0 0 200px;
+  overflow: auto;
 }
 .mail-list {
   line-height: 24px;
@@ -479,6 +480,6 @@ li {
   background-color: #F9F9F9;
   height: 300px;
   overflow: hidden;
-  margin-top: 15px;
+  margin-top: 10px;
   padding: 10px;
 }

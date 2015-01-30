@@ -52,7 +52,7 @@ gulp.task('watch',function(){
 });
 
 //构建开发任务
-gulp.task('dev',['clean-build','bower-to-lib','watch'],function(){})
+gulp.task('dev',['clean-build','bower-to-lib','build-less','watch'],function(){})
 
 //需要发布的文件
 var releaseFile=[

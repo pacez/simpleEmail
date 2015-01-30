@@ -1,6 +1,3 @@
-<div class class="list">
-  <h2>{{view.title}}</h3>
-  <ul>
-    <li ng-repeat="item in view.list">{{item.name}}</li>
-  </ul>
-</div>
+<ul ng-controller="mailListCtrl" class="mail-list">
+  <li  ng-repeat="mail in mails"><a href="#/mailDetail/{{mail.id}}">{{mail.subject}}</a></li>
+</ul>
