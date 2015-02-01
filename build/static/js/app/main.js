@@ -49,44 +49,48 @@ var draftList=[];
       });
     }
     
-
+var mainMenu=[
+  {name: 'inbox', route:'#/inbox', count: mailList.length},
+  {name: 'draft', route:'#/draft', count: draftList.length}
+];
 
 /*
 * The main enter
 */
 
-//ÊµÀı»¯Ó¦ÓÃ
-var app = angular.module('app', ['ngRoute']);
+//å®ä¾‹åŒ–åº”ç”¨
+var app = angular.module('app', ['ngRoute']),
+    serverRoot= '/build';
 
-//Ó¦ÓÃÅäÖÃ
+//åº”ç”¨é…ç½®
 app.config(['$routeProvider',function($routeProvider) {
   $routeProvider.when('/inbox', {
-    templateUrl: '/build/static/view/inbox.html',
+    templateUrl: serverRoot+'/static/view/inbox.html',
     controller: 'inboxCtrl'
   }).when('/inbox/:id',{
-    templateUrl: '/build/static/view/inboxDetail.html',
+    templateUrl: serverRoot+'/static/view/inboxDetail.html',
     controller: 'inboxDetailCtrl'
   }).when('/draft',{
-    templateUrl: '/build/static/view/draft.html',
+    templateUrl: serverRoot+'/static/view/draft.html',
     controller: 'draftCtrl'
   }).when('/draft/:id',{
-    templateUrl: '/build/static/view/draftDetail.html',
+    templateUrl: serverRoot+'/static/view/draftDetail.html',
     controller: 'draftDetailCtrl'
   }).otherwise({  
     redirectTo: '/inbox'
   });  
 }]);;
 
-//¶¨Òåcontroller
+//å®šä¹‰controller
 app.controller('inboxCtrl', function($scope) {
-  //Êµ¼Ê¿ª·¢£¬Í¨¹ıÒì²½ÇëÇó»ñÈ¡Êı¾İ£¬ÇÒÊı¾İ½á¹¹»¹¿ÉÒÔÓÅ»¯£¬½ö½ö¹¹½¨ÁĞ±í²»ĞèÒªÄÚÈİ£¬¸½¼şµÈµÈ¡£
+  //å®é™…å¼€å‘ï¼Œé€šè¿‡å¼‚æ­¥è¯·æ±‚è·å–æ•°æ®ï¼Œä¸”æ•°æ®ç»“æ„è¿˜å¯ä»¥ä¼˜åŒ–ï¼Œä»…ä»…æ„å»ºåˆ—è¡¨ä¸éœ€è¦å†…å®¹ï¼Œé™„ä»¶ç­‰ç­‰ã€‚
   $scope.mails=mailList;
 });
 
 app.controller('inboxDetailCtrl', function($scope,$routeParams) {
   $scope.id = $routeParams.id;
-  //Êµ¼Ê¿ª·¢¹ı³ÌÖĞ´Ë´¦Ó¦¸ÃÍ¨¹ıidÒì²½ÇëÇóÓÊ¼şÏêÇéÊı¾İ¡£
-  //´Ë´¦ÎÒÍ¨¹ı×Ô¶¨ÒåµÄmailFilter¹ıÂËÊı¾İ£¬»ñÈ¡Æ¥ÅäµÄÓÊ¼şÏêÇéÊı¾İ£º mail in mailList | mailFilter:id:id
+  //å®é™…å¼€å‘è¿‡ç¨‹ä¸­æ­¤å¤„åº”è¯¥é€šè¿‡idå¼‚æ­¥è¯·æ±‚é‚®ä»¶è¯¦æƒ…æ•°æ®ã€‚
+  //æ­¤å¤„æˆ‘é€šè¿‡è‡ªå®šä¹‰çš„mailFilterè¿‡æ»¤æ•°æ®ï¼Œè·å–åŒ¹é…çš„é‚®ä»¶è¯¦æƒ…æ•°æ®ï¼š mail in mailList | mailFilter:id:id
   $scope.mailList=mailList;
 
   for(var i=0; i<$scope.mailList.length; i++){
@@ -99,14 +103,14 @@ app.controller('inboxDetailCtrl', function($scope,$routeParams) {
 });
 
 app.controller('draftCtrl', function($scope) {
-  //Êµ¼Ê¿ª·¢£¬Í¨¹ıÒì²½ÇëÇó»ñÈ¡Êı¾İ£¬ÇÒÊı¾İ½á¹¹»¹¿ÉÒÔÓÅ»¯£¬½ö½ö¹¹½¨ÁĞ±í²»ĞèÒªÄÚÈİ£¬¸½¼şµÈµÈ¡£
+  //å®é™…å¼€å‘ï¼Œé€šè¿‡å¼‚æ­¥è¯·æ±‚è·å–æ•°æ®ï¼Œä¸”æ•°æ®ç»“æ„è¿˜å¯ä»¥ä¼˜åŒ–ï¼Œä»…ä»…æ„å»ºåˆ—è¡¨ä¸éœ€è¦å†…å®¹ï¼Œé™„ä»¶ç­‰ç­‰ã€‚
   $scope.drafts=draftList;
 });
 
 app.controller('draftDetailCtrl', function($scope,$routeParams) {
   $scope.id = $routeParams.id;
-  //Êµ¼Ê¿ª·¢¹ı³ÌÖĞ´Ë´¦Ó¦¸ÃÍ¨¹ıidÒì²½ÇëÇóÓÊ¼şÏêÇéÊı¾İ¡£
-  //´Ë´¦ÎÒÍ¨¹ı×Ô¶¨ÒåµÄmailFilter¹ıÂËÊı¾İ£¬»ñÈ¡Æ¥ÅäµÄÓÊ¼şÏêÇéÊı¾İ£º mail in mailList | mailFilter:id:id
+  //å®é™…å¼€å‘è¿‡ç¨‹ä¸­æ­¤å¤„åº”è¯¥é€šè¿‡idå¼‚æ­¥è¯·æ±‚é‚®ä»¶è¯¦æƒ…æ•°æ®ã€‚
+  //æ­¤å¤„æˆ‘é€šè¿‡è‡ªå®šä¹‰çš„mailFilterè¿‡æ»¤æ•°æ®ï¼Œè·å–åŒ¹é…çš„é‚®ä»¶è¯¦æƒ…æ•°æ®ï¼š mail in mailList | mailFilter:id:id
   $scope.mailList=draftList;
 
   for(var i=0; i<$scope.mailList.length; i++){
@@ -116,19 +120,44 @@ app.controller('draftDetailCtrl', function($scope,$routeParams) {
       $scope.mailList[i].isSelected=false;
     }
   }
-
-  console.log($scope.mailList)
 });
 
 app.controller('mailMenuCtrl', function($scope) {
-  $scope.mails=mailList;
-  $scope.drafts=draftList;
+  var urlArr=window.location.href.split('#'),
+      routeArr=urlArr[urlArr.length-1].split('/'),
+      routeRoot="#/"+routeArr[1];
+
+  $scope.mainMenu=mainMenu;
+  for(var i=0; i<$scope.mainMenu.length; i++){
+    if($scope.mainMenu[i].route==routeRoot){
+      $scope.mainMenu[i].isSelected=true;
+    }else {
+      $scope.mainMenu[i].isSelected=false;
+    }
+  }
 });
 
-//¶¨ÒåÖ¸Áî
+//å®šä¹‰æŒ‡ä»¤
 app.directive('templateMenu', function() {
+  var html='';
+      html+='<ul>';
+        html+='<li ng-repeat="item in mainMenu"><a ng-class="{\'selected\': item.isSelected}" class="menu-item" ng-href="{{item.route}}">{{item.name}} ({{item.count}})</a></li>';
+        html+='<li style="color: #666">Developing...</li>'
+      html+='</ul>';
   var options={
-        templateUrl: '/build/static/template/menu.html',
+        template: html,
+        replace: true
+      }
+  return options;
+});
+
+app.directive('s', function() {
+  var html='';
+      html+='<ul>';
+        html+='<li ng-repeat="item in mainMenu"><a class="menu-item" ng-href="item.route">Inbox ({{item.count}})</a></li>';
+      html+='</ul>';
+  var options={
+        template: html,
         replace: true
       }
   return options;
@@ -136,7 +165,7 @@ app.directive('templateMenu', function() {
 
 app.directive('templateHeader', function() {
   var options={
-        templateUrl: '/build/static/template/header.html',
+        templateUrl: serverRoot+'/static/template/header.html',
         replace: true
       }
   return options;
@@ -144,7 +173,7 @@ app.directive('templateHeader', function() {
 
 app.directive('templateFooter', function() {
   var options={
-        templateUrl: '/build/static/template/footer.html',
+        templateUrl: serverRoot+'/static/template/footer.html',
         replace: true
       }
   return options;
@@ -152,7 +181,7 @@ app.directive('templateFooter', function() {
 
 app.directive('inboxList', function() {
   var options={
-        templateUrl: '/build/static/template/inboxList.html',
+        templateUrl: serverRoot+'/static/template/inboxList.html',
         replace: true
       }
   return options;
@@ -160,14 +189,14 @@ app.directive('inboxList', function() {
 
 app.directive('draftList', function() {
   var options={
-        templateUrl: '/build/static/template/draftList.html',
+        templateUrl: serverRoot+'/static/template/draftList.html',
         replace: true
       }
   return options;
 });
 
 
-//×Ô¶¨ÒåÓÊ¼ş¹ıÂËÆ÷£¬Í¨¹ıkey,value¹ıœWÊı¾İ
+//è‡ªå®šä¹‰é‚®ä»¶è¿‡æ»¤å™¨ï¼Œé€šè¿‡key,valueè¿‡æ·²æ•°æ®
 app.filter('mailFilter',function () {
   return function (mailList,key,value) {
     if(key && value){
@@ -183,7 +212,8 @@ app.filter('mailFilter',function () {
   }
 });
 
-//ÉèÖÃmailÄÚÈİÇøÓò¸ß¶È
+
+//è®¾ç½®mailå†…å®¹åŒºåŸŸé«˜åº¦
 var setMainHeight=function(id,deviator){
   var $mailContent=$("#"+id),
       deviator=$("#footer").height()+15+(deviator ? deviator : 0),
@@ -191,14 +221,21 @@ var setMainHeight=function(id,deviator){
   $mailContent.height(getMailContentHeight);
 };
 
-
 $(function(){
-  setMainHeight('mailMain',71);
+  //è®¾ç½®é»˜è®¤é«˜åº¦
+  setMainHeight('mailMain',71)
+  
+  //è®¾ç½®ä¸»èœå•å•å‡»é€‰ä¸­äº‹ä»¶
+  var $menu=$(".menu-item");
   $(document).on('click.menu',function(e){
     var $elem=$(e.target);
         if($elem.hasClass("menu-item")){
-          $elem.parent().parent().find("a").removeClass('selected');
+          $menu.removeClass('selected');
           $elem.addClass('selected');
+        }
+        if($elem.is("#logo")){
+          $menu.removeClass('selected');
+          $($menu[0]).addClass('selected');
         }
   });
 });
