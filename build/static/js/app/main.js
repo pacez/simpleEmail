@@ -1,7 +1,3 @@
-/*
-* data structor
-*/
-
 var mailList=[];
     for(var i=1; i<41; i++){
       mailList.push({
@@ -151,18 +147,6 @@ app.directive('templateMenu', function() {
   return options;
 });
 
-app.directive('s', function() {
-  var html='';
-      html+='<ul>';
-        html+='<li ng-repeat="item in mainMenu"><a class="menu-item" ng-href="item.route">Inbox ({{item.count}})</a></li>';
-      html+='</ul>';
-  var options={
-        template: html,
-        replace: true
-      }
-  return options;
-});
-
 app.directive('templateHeader', function() {
   var options={
         templateUrl: serverRoot+'/static/template/header.html',
@@ -195,7 +179,6 @@ app.directive('draftList', function() {
   return options;
 });
 
-
 //自定义邮件过滤器，通过key,value过淲数据
 app.filter('mailFilter',function () {
   return function (mailList,key,value) {
@@ -211,7 +194,6 @@ app.filter('mailFilter',function () {
     return matchMails ? matchMails : mailList;
   }
 });
-
 
 //设置mail内容区域高度
 var setMainHeight=function(id,deviator){
