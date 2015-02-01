@@ -1,0 +1,41 @@
+<div class="mail-main-sub">
+  <inbox-list></inbox-list>
+  <div class="mail-main-container">
+    <div class="mail-main-body" ng-repeat="mail in mailList | mailFilter:'id':id">
+      <div class="mail-info">
+        <div class="mail-item">
+          <span class="mail-sub-title">主&nbsp;&nbsp;&nbsp;&nbsp;题：</span>
+          <div class="mail-title-labels">{{mail.subject}}</div>
+        </div>
+        <div class="mail-item">
+          <span class="mail-sub-title">发件人：</span>
+          <div class="mail-title-labels">{{mail.from.mail}}</div>
+        </div>
+        <div class="mail-item">
+          <span class="mail-sub-title">时&nbsp;&nbsp;&nbsp;&nbsp;间：</span>
+          <div class="mail-title-labels">{{mail.sentTime}}</div>
+        </div>
+        <div class="mail-item">
+          <span class="mail-sub-title">收件人：</span>
+          <div class="mail-title-labels"><span class="mail-recipient" ng-repeat="recipient in mail.to">{{recipient.mail}}</span></div>
+        </div>
+        <div class="mail-item">
+          <span class="mail-sub-title">抄&nbsp;&nbsp;&nbsp;&nbsp;送：</span>
+          <div class="mail-title-labels"><span class="mail-recipient" ng-repeat="recipient in mail.cc">{{recipient.mail}}</span></div>
+        </div>
+        <div class="mail-item">
+          <span class="mail-sub-title">附&nbsp;&nbsp;&nbsp;&nbsp;件：</span>
+          <div class="mail-title-labels">
+            <span class="mail-attach" ng-repeat="attach in mail.attachment"><a target="_blank" ng-href="{{attach.link}}">{{attach.label}}</a></span>
+          </div>
+        </div>
+      </div>
+      <div class="mail-content" id="mailContent">
+        <div class="mail-edit-wrap">{{mail.content}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    setMainHeight('mailContent');
+</script>

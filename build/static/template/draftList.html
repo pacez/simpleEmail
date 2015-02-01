@@ -1,0 +1,3 @@
+<ul ng-controller="draftCtrl" class="mail-list">
+  <li  ng-repeat="draft in drafts"><a ng-class="{'selected': draft.isSelected}" href="#/draft/{{draft.id}}">{{draft.subject}}</a></li>
+</ul>
