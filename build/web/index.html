@@ -11,14 +11,14 @@
         <script type="text/javascript" src="../static/js/lib/jquery.min.js"></script>
         <script type="text/javascript" src="../static/js/lib/angular.js"></script>
         <script type="text/javascript" src="../static/js/lib/angular-route.js"></script>
-        <script type="text/javascript" src="../static/js/app/main.js"></script>
+        <script type="text/javascript" src="../static/js/app/main/main.js"></script>
+        <script type="text/javascript" src="../static/js/app/controller/main-controller.js"></script>
+        <script type="text/javascript" src="../static/js/app/directive/main-directive.js"></script>
     </head>
-    <body ng-app="app">
+    <body ng-app="app" ng-controller="rootCtrl">
         <template-header></template-header>
         <div class="content">
-            <div class="mail-menu" ng-controller="mailMenuCtrl">
-                <template-menu></template-menu>
-            </div>
+            <template-menu></template-menu>
             <div class="mail-main" id="mailMain">
                 <div ng-view></div>
             </div>

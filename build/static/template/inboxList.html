@@ -1,3 +1,3 @@
 <ul ng-controller="inboxCtrl" class="mail-list">
-  <li  ng-repeat="mail in mails"><a ng-class="{'selected': mail.isSelected}" href="#/inbox/{{mail.id}}">{{mail.subject}}</a></li>
+  <li  ng-repeat="mail in mails" ng-click="setRead(mail.id)" ng-class="{'true': 'unread'}[mail.isUnread]"><span class="unread-marker"></span><a ng-class="{'selected': mail.isSelected}" href="#/inbox/{{mail.id}}">{{mail.subject}}</a></li>
 </ul>

@@ -371,17 +371,35 @@ body {
   color: #333333;
 }
 a {
-  color: #3175C5;
+  color: #333;
 }
 .selected {
   font-weight: bold;
-  color: #D96ED6;
 }
 ul,
 li {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.google-material-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  vertical-align: middle;
+}
+.ui-button {
+  border: 1px solid #BABABA;
+  background-color: #EEE;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+.ui-button:hover {
+  background-color: #FFF;
 }
 .header {
   background-color: #f4f4f4;
@@ -433,10 +451,24 @@ li {
 }
 .mail-menu ul {
   margin: 5px;
+  border-bottom: 1px solid #BABABA;
 }
 .mail-menu ul li {
-  border-bottom: 1px solid #BABABA;
   padding-left: 5px;
+}
+.mail-menu ul li .unread {
+  color: #f08800;
+}
+.mail-menu ul.menu-action li {
+  line-height: 24px;
+  font-weight: bold;
+  position: relative;
+  padding-left: 22px;
+}
+.mail-menu ul.menu-action li .google-material-icon {
+  position: absolute;
+  left: 0;
+  top: 3px;
 }
 .mail-main {
   margin: 0 0 0 200px;
@@ -449,6 +481,27 @@ li {
 .mail-main .mail-list li {
   border-bottom: 1px solid #BABABA;
   padding-left: 5px;
+  position: relative;
+  padding-left: 17px;
+}
+.mail-main .mail-list li .unread-marker {
+  position: absolute;
+  background-color: #666;
+  width: 5px;
+  height: 5px;
+  border-radius: 2px;
+  left: 6px;
+  top: 9px;
+}
+.mail-main .mail-list li.unread {
+  background-color: #FFFFEC;
+  color: #F08800;
+}
+.mail-main .mail-list li.unread a {
+  color: #F08800;
+}
+.mail-main .mail-list li.unread .unread-marker {
+  background-color: #F08800;
 }
 .mail-main .mail-main-container {
   padding: 5px;
@@ -505,6 +558,11 @@ li {
 }
 .mail-main .mail-main-container .mail-info .mail-item .mail-attach a:hover {
   text-decoration: underline;
+}
+.mail-main .mail-main-container .mail-info .mail-item .mail-command-group {
+  position: absolute;
+  right: 40px;
+  top: 2px;
 }
 .mail-main .mail-main-container .mail-info .mail-item .ui-icon-add {
   position: absolute;

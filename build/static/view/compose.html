@@ -1,0 +1,30 @@
+<div class="mail-main-container">
+  <div class="mail-main-body">
+    <div class="mail-info">
+      <div class="mail-item">
+        <span class="mail-sub-title">收件人：</span>
+        <div class="mail-title-input"></div><a class="ui-icon-add" onclick="alert('Developing ')" href="javascript:void(0)">+</a>
+      </div>
+      <div class="mail-item">
+        <span class="mail-sub-title">抄&nbsp;&nbsp;&nbsp;&nbsp;送：</span>
+        <div class="mail-title-input"></div><a class="ui-icon-add" onclick="alert('Developing ')" href="javascript:void(0)">+</a>
+      </div>
+      <div class="mail-item">
+        <span class="mail-sub-title">主&nbsp;&nbsp;&nbsp;&nbsp;题：</span>
+        <div class="mail-title-input"><input type="text" value=""></div>
+      </div>
+      <div class="mail-item">
+        <span class="mail-attach"><a href="javascript:void(0)" onclick="alert('Developing ')">添加附件</a></span>
+        <div class="mail-command-group">
+          <a href="javascript:void(0)" onclick="alert('developing...')" class="ui-button">Send</a>
+        </div>
+      </div>
+    </div>
+    <div class="mail-content mail-edit" id="mailContent">
+      <div class="mail-edit-wrap"><textarea></textarea></div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+    setMainHeight('mailContent');
+</script>
