@@ -79,9 +79,6 @@ app.config(['$routeProvider',function($routeProvider) {
   });
 }]);;
 
-
-
-
 //自定义邮件过滤器，通过key,value过淲数据
 //考虑效率问题，实际开发过程中，过滤由异步请求完成
 app.filter('mailFilter',function () {
@@ -99,6 +96,11 @@ app.filter('mailFilter',function () {
   }
 });
 
+
+
+/*
+*公共方法区域
+*/
 //设置mail内容区域高度
 var setMainHeight=function(id,deviator){
   var $mailContent=$("#"+id),
@@ -107,6 +109,7 @@ var setMainHeight=function(id,deviator){
   $mailContent.height(getMailContentHeight);
 };
 
+//获取未读邮件数量
 var getUnreadCount=function(){
     var unreadCount=0;
     for(var i=0; i<mailList.length; i++){
@@ -117,6 +120,7 @@ var getUnreadCount=function(){
     return unreadCount;
 }
 
+//根据id设置邮件集合未读状态
 var setUnreadCount=function(id){
   for(var i=0; i<mailList.length; i++){
     if(mailList[i].id==id){
