@@ -1,6 +1,4 @@
-/*
-*构建页面数据
-*/
+/*===========================构建页面数据====================*/
 var mailList=[];
     for(var i=1; i<41; i++){
       mailList.push({
@@ -53,6 +51,7 @@ var mainMenu=[
   {name: 'draft', route:'#/draft', count: draftList.length}
 ];
 
+/*=====================angular模块定义及匹置========================*/
 //实例化应用
 var app = angular.module('app', ['ngRoute']),
     serverRoot= '/build';
@@ -96,11 +95,7 @@ app.filter('mailFilter',function () {
   }
 });
 
-
-
-/*
-*公共方法区域
-*/
+/*=====================公共方法========================*/
 //设置mail内容区域高度
 var setMainHeight=function(id,deviator){
   var $mailContent=$("#"+id),
