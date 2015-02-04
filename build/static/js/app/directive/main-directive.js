@@ -1,12 +1,4 @@
 //定义指令
-app.directive('templateMenu', function() {
-  var options={
-        templateUrl: _TEMPLATEPATH+'/menu.html',
-        replace: true
-      }
-  return options;
-});
-
 app.directive('mainMenu', function() {
   var html='';
       html+='<ul id="menuAction" class="menu-main">';
@@ -46,6 +38,24 @@ app.directive('templateFooter', function() {
   var options={
         templateUrl: _TEMPLATEPATH+'/footer.html',
         replace: true
+      }
+  return options;
+});
+
+app.directive('templateMenu', function() {
+  var options={
+        templateUrl: _TEMPLATEPATH+'/menu.html',
+        replace: true
+      }
+  return options;
+});
+app.directive('templateContent', function() {
+  var options={
+        templateUrl: _TEMPLATEPATH+'/content.html',
+        replace: true,
+        link: function(){
+          setMainHeight('mailMain',16);
+        }
       }
   return options;
 });

@@ -41,11 +41,4 @@ app.filter('mailFilter',function () {
   }
 });
 
-/*=====================页面布局初始化========================*/
 
-if(_PLATFORM.isPc()){
-  $(function(){
-    //设置默认高度
-    setMainHeight('mailMain',71)
-  });
-}

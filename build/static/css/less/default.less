@@ -92,185 +92,196 @@ ul,li {
   border-top: 1px solid #BABABA;
   text-align: center;
 }
-
-.mail-menu {
-  line-height: 24px;
-  width: 200px;
-  position: absolute;
-  left: 0;
-  top: 60px;
-  ul {
-    margin: 5px;
-    border-bottom: 1px solid #BABABA;
-    li {
-      padding-left: 5px;
-      .unread {
-        color: #f08800;
-      }
-    }
-    &.menu-action {
-      li {
-        line-height: 24px;
-        font-weight: bold;
-        position: relative;
-        padding-left: 22px;
-        .google-material-icon {
-          position: absolute;
-          left: 0;
-          top: 3px;
-        }
-      }
-    }
-  }
-}
-
-.mail-main {
-  margin: 0 0 0 200px;
-  overflow: auto;
-  .mail-list {
+.device-pc {
+  .mail-menu {
     line-height: 24px;
-    margin: 5px;
-    li {
+    width: 200px;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    ul {
+      margin: 5px;
       border-bottom: 1px solid #BABABA;
-      padding-left: 5px;
-      position: relative;
-      padding-left: 17px;
-      .unread-marker {
-        position: absolute;
-        background-color: #666;
-        width: 5px;
-        height: 5px;
-        border-radius: 2px;
-        left: 6px;
-        top: 9px;
-      }
-      &.unread {
-        background-color: #FFFFEC;
-        color: #F08800;
-        a {
-          color: #F08800;
-        }
-        .unread-marker {
-          background-color: #F08800;
+      li {
+        padding-left: 5px;
+        .unread {
+          color: #f08800;
         }
       }
-    }
-  }
-
-  .mail-main-container {
-    padding: 5px;
-    .mail-info {
-      .mail-item {
-        overflow: hidden;
-        line-height: 20px;
-        padding: 2px 0;
-        position: relative;
-        .mail-title-labels {
-          margin: 0 40px 0 55px;
-          min-height: 20px;
-          padding: 2px 0;
-          overflow: hidden;
-        }
-        .mail-title-input {
-          margin: 0 40px 0 55px;
-          min-height: 20px;
-          padding: 2px 0;
-          overflow: hidden;
-          border-bottom: 1px solid #BABABA;
-          input {
-            width: 100%;
-            height: 100%;
-            border: none;
+      &.menu-action {
+        li {
+          line-height: 24px;
+          font-weight: bold;
+          position: relative;
+          padding-left: 22px;
+          .google-material-icon {
+            position: absolute;
+            left: 0;
+            top: 3px;
           }
         }
-        .mail-sub-title {
-          float: left;
-          font-weight: bold;
-          width: 55px;
+      }
+    }
+  }
+
+  .mail-main {
+    margin: 0 0 0 200px;
+    overflow: auto;
+    .mail-list {
+      line-height: 24px;
+      margin: 5px;
+      li {
+        border-bottom: 1px solid #BABABA;
+        padding-left: 5px;
+        position: relative;
+        padding-left: 17px;
+        .unread-marker {
           position: absolute;
-          left: 0;
-          top: 0;
-          line-height: 28px;
+          background-color: #666;
+          width: 5px;
+          height: 5px;
+          border-radius: 2px;
+          left: 6px;
+          top: 9px;
         }
-        .mail-recipient {
-          float: left;
-          height: 18px;
-          line-height: 18px;
-          padding: 0 3px;
-          border-radius: 3px;
-          border: 1px solid #BABABA;
-          margin-right: 3px;
-          background-color: #F4F4F4;
-          margin-bottom: 2px;
-        }
-        .mail-attach {
+        &.unread {
+          background-color: #FFFFEC;
+          color: #F08800;
           a {
-            color: #4B64A4;
-            &:hover {
-              text-decoration: underline;
+            color: #F08800;
+          }
+          .unread-marker {
+            background-color: #F08800;
+          }
+        }
+      }
+    }
+
+    .mail-main-container {
+      padding: 5px;
+      .mail-info {
+        .mail-item {
+          overflow: hidden;
+          line-height: 20px;
+          padding: 2px 0;
+          position: relative;
+          .mail-title-labels {
+            margin: 0 40px 0 55px;
+            min-height: 20px;
+            padding: 2px 0;
+            overflow: hidden;
+          }
+          .mail-title-input {
+            margin: 0 40px 0 55px;
+            min-height: 20px;
+            padding: 2px 0;
+            overflow: hidden;
+            border-bottom: 1px solid #BABABA;
+            input {
+              width: 100%;
+              height: 100%;
+              border: none;
             }
           }
-          margin-right: 10px;
+          .mail-sub-title {
+            float: left;
+            font-weight: bold;
+            width: 55px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            line-height: 28px;
+          }
+          .mail-recipient {
+            float: left;
+            height: 18px;
+            line-height: 18px;
+            padding: 0 3px;
+            border-radius: 3px;
+            border: 1px solid #BABABA;
+            margin-right: 3px;
+            background-color: #F4F4F4;
+            margin-bottom: 2px;
+          }
+          .mail-attach {
+            a {
+              color: #4B64A4;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+            margin-right: 10px;
+          }
+          .mail-command-group {
+            position: absolute;
+            right: 40px;
+            top: 2px;
+          }
+          .ui-icon-add {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            height: 16px;
+            width: 16px;
+            text-align: center;
+            line-height: 16px;
+            border: 1px solid #BABABA;
+            color: #999;
+            &:hover {
+              color: #000;
+              border-color: #000;
+            }
+          }
         }
-        .mail-command-group {
-          position: absolute;
-          right: 40px;
-          top: 2px;
+      }
+      .mail-content {
+        border: 1px solid #BABABA;
+        background-color: #F9F9F9;
+        height: 300px;
+        overflow: hidden;
+        margin-top: 10px;
+        &.mail-edit {
+          background-color: #FFF;
         }
-        .ui-icon-add {
-          position: absolute;
-          right: 10px;
-          top: 10px;
-          height: 16px;
-          width: 16px;
-          text-align: center;
-          line-height: 16px;
-          border: 1px solid #BABABA;
-          color: #999;
-          &:hover {
-            color: #000;
-            border-color: #000;
+        .mail-edit-wrap {
+          margin: 10px;
+          height: 98%;
+          textarea {
+            border: none;
+            background-color: #FFF;
+            width: 100%;
+            height: 100%;
+            resize: none;
           }
         }
       }
     }
-    .mail-content {
-      border: 1px solid #BABABA;
-      background-color: #F9F9F9;
-      height: 300px;
-      overflow: hidden;
-      margin-top: 10px;
-      &.mail-edit {
-        background-color: #FFF;
-      }
-      .mail-edit-wrap {
-        margin: 10px;
-        height: 98%;
-        textarea {
-          border: none;
-          background-color: #FFF;
-          width: 100%;
-          height: 100%;
-          resize: none;
-        }
-      }
-    }
-  }
 
-  .mail-main-sub {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    .mail-list {
-      position: absolute;
-      width: 180px;
-      top: 0;
-      left: 0;
+    .mail-main-sub {
+      position: relative;
+      width: 100%;
       height: 100%;
-      overflow: auto;
+      .mail-list {
+        position: absolute;
+        width: 180px;
+        top: 0;
+        left: 0;
+        height: 100%;
+        overflow: auto;
+      }
+      .mail-main-container {
+        margin-left: 190px;
+      }
     }
-    .mail-main-container {
-      margin-left: 190px;
-    }
+  }  
+}
+
+.device-mobile {
+  .mail-main {
+    font-size: 1.8em;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 50px;
   }
 }

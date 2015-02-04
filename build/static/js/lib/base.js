@@ -34,6 +34,17 @@ var _TOOLS={
 }
 
 /*
+* 设置不同设备类型的class root
+*/
+$(function(){
+  if(_PLATFORM.isPc()){
+    $("body").addClass('device-pc');
+  }else{
+    $("body").addClass('device-mobile');
+  }
+})
+
+/*
 * 定义视图与模板路径
 */
 _VIEWPATH= '/build/static/view/'+_PLATFORM.DEVICETYPE;

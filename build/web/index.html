@@ -8,8 +8,8 @@
         <!--[if lt IE 9]>
         <script type="text/javascript" src="../static/js/lib//html5shiv.min.js"></script>
         <![endif]-->
-        <script type="text/javascript" src="../static/js/lib/base.js"></script>
         <script type="text/javascript" src="../static/js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="../static/js/lib/base.js"></script>
         <script type="text/javascript" src="../static/js/lib/angular.js"></script>
         <script type="text/javascript" src="../static/js/lib/angular-route.js"></script>
         <script type="text/javascript" src="../static/js/app/main/main.js"></script>
@@ -18,12 +18,7 @@
     </head>
     <body ng-app="app" ng-controller="rootCtrl">
         <template-header></template-header>
-        <div class="content">
-            <template-menu></template-menu>
-            <div class="mail-main" id="mailMain">
-                <div ng-view></div>
-            </div>
-        </div>
+        <template-content></template-content>
         <template-footer></template-footer>
     </body>
 </html>
