@@ -1,7 +1,7 @@
 //定义指令
 app.directive('templateMenu', function() {
   var options={
-        templateUrl: serverRoot+'/static/template/menu.html',
+        templateUrl: _TEMPLATEPATH+'/menu.html',
         replace: true
       }
   return options;
@@ -36,7 +36,7 @@ app.directive('mainMenu', function() {
 
 app.directive('templateHeader', function() {
   var options={
-        templateUrl: serverRoot+'/static/template/header.html',
+        templateUrl: _TEMPLATEPATH+'/header.html',
         replace: true
       }
   return options;
@@ -44,7 +44,7 @@ app.directive('templateHeader', function() {
 
 app.directive('templateFooter', function() {
   var options={
-        templateUrl: serverRoot+'/static/template/footer.html',
+        templateUrl: _TEMPLATEPATH+'/footer.html',
         replace: true
       }
   return options;
@@ -52,7 +52,7 @@ app.directive('templateFooter', function() {
 
 app.directive('inboxList', function() {
   var options={
-        templateUrl: serverRoot+'/static/template/inboxList.html',
+        templateUrl: _TEMPLATEPATH+'/inboxList.html',
         replace: true
       }
   return options;
@@ -60,7 +60,7 @@ app.directive('inboxList', function() {
 
 app.directive('draftList', function() {
   var options={
-        templateUrl: serverRoot+'/static/template/draftList.html',
+        templateUrl: _TEMPLATEPATH+'/draftList.html',
         replace: true
       }
   return options;

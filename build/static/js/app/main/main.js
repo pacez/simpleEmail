@@ -53,25 +53,24 @@ var mainMenu=[
 
 /*=====================angular模块定义及匹置========================*/
 //实例化应用
-var app = angular.module('app', ['ngRoute']),
-    serverRoot= '/build';
+var app = angular.module('app', ['ngRoute']);
 
 //应用配置
 app.config(['$routeProvider',function($routeProvider) {
   $routeProvider.when('/inbox', {
-    templateUrl: serverRoot+'/static/view/inbox.html',
+    templateUrl: _VIEWPATH+'/inbox.html',
     controller: 'inboxCtrl'
   }).when('/inbox/:id',{
-    templateUrl: serverRoot+'/static/view/inboxDetail.html',
+    templateUrl: _VIEWPATH+'/inboxDetail.html',
     controller: 'inboxDetailCtrl'
   }).when('/draft',{
-    templateUrl: serverRoot+'/static/view/draft.html',
+    templateUrl: _VIEWPATH+'/draft.html',
     controller: 'draftCtrl'
   }).when('/draft/:id',{
-    templateUrl: serverRoot+'/static/view/draftDetail.html',
+    templateUrl: _VIEWPATH+'/draftDetail.html',
     controller: 'draftDetailCtrl'
   }).when('/compose',{
-    templateUrl: serverRoot+'/static/view/compose.html',
+    templateUrl: _VIEWPATH+'/compose.html',
     controller: 'draftDetailCtrl'
   }).otherwise({
     redirectTo: '/inbox'
