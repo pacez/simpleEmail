@@ -10,9 +10,7 @@
  };
 
  if (/android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
-   if (!/ipad/i.test(_PLATFORM.USERAGENT)) {
-     _PLATFORM.DEVICETYPE = "mobile";
-   }
+    _PLATFORM.DEVICETYPE = "mobile";
  }
 
 _VIEWPATH= '/build/static/view/'+_PLATFORM.DEVICETYPE;

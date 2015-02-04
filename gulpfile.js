@@ -27,7 +27,7 @@ var buildPath={
 
 //清除lib目录
 gulp.task('clean-build',function(){
-  gulp.src([buildPath.lib+'/*',buildPath.css+'/*.css']).pipe(clean());
+  gulp.src([buildPath.lib+'/*',buildPath.css+'/*.css']).pipe(clean()).on('error',function(e){console.log(e)});
 })
 
 //拷贝并压缩bower构建的基础js库到lib文件夹下
@@ -66,7 +66,7 @@ var releaseFile=[
 //生成release版本
 gulp.task('clean-release',function(){
   //清理release目录
-  gulp.src('release').pipe(clean());
+  gulp.src('release').pipe(clean()).on('error',function(e){console.log(e)});
 });
 
 gulp.task('release',['clean-release'],function(){
