@@ -1,17 +1,30 @@
 /*
-* 娴忚鍣ㄧ璁惧鍒ゆ柇
+* 浏览器端设备判断
 * android/webos/ios/blackberry/tizen/bada/kindle fire(HDX7/HDX8.9)
-* 骞虫澘浠呭尯鍒唅PAD,鍏朵綑骞冲彴褰掔被涓篗obile
+* 平板仅区分iPAD,其余平台归类为Mobile
 */
 
- var _PLATFORM = {
-   USERAGENT: navigator.userAgent.toLowerCase(),
-   DEVICETYPE: 'pc'
- };
+var _PLATFORM = {
+ USERAGENT: navigator.userAgent.toLowerCase(),
+ DEVICETYPE: 'pc'
+};
 
- if (/android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
-    _PLATFORM.DEVICETYPE = "mobile";
- }
+if (/android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
+  _PLATFORM.DEVICETYPE = "mobile";
+}
+
+/*
+* 工具类
+* console
+*/
+var _TOOLS={
+  console: function(msg){
+    if(console && console.log){
+      console.log(msg);
+    }
+  }
+}
 
 _VIEWPATH= '/build/static/view/'+_PLATFORM.DEVICETYPE;
 _TEMPLATEPATH= '/build/static/template/'+_PLATFORM.DEVICETYPE;
+
