@@ -1,7 +1,7 @@
 /*==========================基础方法============================*/
 /*
 * 浏览器端设备判断
-* android/webos/ios/blackberry/tizen/bada/kindle fire(HDX7/HDX8.9)
+* android/webos/ios/wp/blackberry/tizen/bada/kindle fire(HDX7/HDX8.9)
 * 平板仅区分iPAD,其余平台归类为Mobile
 */
 
@@ -10,7 +10,7 @@ var _PLATFORM = {
  DEVICETYPE: 'pc'
 };
 
-if (/android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
+if (/mobile|android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
   _PLATFORM.DEVICETYPE = "mobile";
 }
 
@@ -39,10 +39,15 @@ var _TOOLS={
 $(function(){
   if(_PLATFORM.isPc()){
     $("body").addClass('device-pc');
+    if(/msie 6.0|msie 7.0|msie 8.0/i.test(_PLATFORM.USERAGENT)){
+      alert("OMG！亲，你是火星来的吧！都20XX年了 ？快去下载最NB的Chrome吧！")
+      window.location.href='http://www.google.cn/chrome/browser/desktop/index.html';
+    }
   }else{
     $("body").addClass('device-mobile');
   }
 })
+
 
 /*
 * 定义视图与模板路径
