@@ -1,7 +1,7 @@
 /*==========================基础方法============================*/
 /*
 * 浏览器端设备判断
-* android/webos/ios/wp/blackberry/tizen/bada/kindle fire(HDX7/HDX8.9)
+* android/webos/ios/wp/aliyunos/symbian/blackberry/tizen/bada/wince/kindle fire(HDX7/HDX8.9)
 * 平板仅区分iPAD,其余平台归类为Mobile
 */
 
@@ -10,7 +10,7 @@ var _PLATFORM = {
  DEVICETYPE: 'pc'
 };
 
-if (/mobile|android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
+if (/mobile|android|webos|ipad|iphone|ipod|blackberry|bb10|windows phone|samsung|aliyunos|symbian|windows ce|kfthwi|kfapwi/i.test(_PLATFORM.USERAGENT)) {
   _PLATFORM.DEVICETYPE = "mobile";
 }
 
@@ -35,6 +35,7 @@ var _TOOLS={
 
 /*
 * 设置不同设备类型的class root
+* 拒绝低版本IE访问
 */
 
 if(_PLATFORM.isPc()){
