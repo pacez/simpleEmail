@@ -13,6 +13,14 @@ app.controller('inboxCtrl', function($scope) {
   $scope.setRead=function(id){
     $scope.$emit("watchUnreadCount", id);
   }
+
+  if(!_PLATFORM.isPc()){
+    $scope.mainMenu=mainMenu;
+    $scope.$on('setReadStatus', function(e,id){
+      setUnreadCount(id);
+      $scope.mainMenu[0].unreadCount=getUnreadCount();
+    });
+  }
 });
 
 app.controller('mailMenuCtrl', function($scope) {
@@ -40,6 +48,11 @@ app.controller('mailMenuCtrl', function($scope) {
 });
 
 app.controller('inboxDetailCtrl', function($scope,$routeParams) {
+  //移动端控制详细信息显示隐藏
+  $scope.visible = true;
+  $scope.toggle = function () {
+      $scope.visible = !$scope.visible;
+  }
   $scope.id = $routeParams.id;
   //实际开发过程中此处应该通过id异步请求邮件详情数据。
   //此处我通过自定义的mailFilter过滤数据，获取匹配的邮件详情数据： mail in mailList | mailFilter:id:id

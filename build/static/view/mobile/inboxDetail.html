@@ -1,0 +1,44 @@
+<div class="mail-main-body" ng-repeat="mail in mailList | mailFilter:'id':id">
+  <div ng-show="visible" class="mail-info-simple">
+    <h2>{{mail.subject}}</h2>
+    <p>
+      <b>To:</b>
+      <span class="mail-recipient" ng-repeat="recipient in mail.to">{{recipient.name}} | </span>
+      <a href="javascript:void(0)" class="ui-button" ng-click="toggle()">Show Detail</a>
+    </p>
+  </div>
+  <table ng-show="!visible" class="mail-info-detail">
+    <tbody>
+      <tr>
+        <th>Subject:</th>
+        <td>{{mail.subject}}</td>
+      </tr>
+      <tr class="main-info-detail">
+        <th>From:</th>
+        <td>{{mail.from.mail}}</td>
+      </tr>
+      <tr class="main-info-detail">
+        <th>Date:</th>
+        <td>{{mail.sentTime}}</td>
+      </tr>
+      <tr class="main-info-detail">
+        <th>To:</th>
+        <td><span class="mail-recipient" ng-repeat="recipient in mail.to">{{recipient.mail}}</span></td>
+      </tr>
+      <tr class="main-info-detail">
+        <th>CC:</th>
+        <td><span class="mail-recipient" ng-repeat="recipient in mail.cc">{{recipient.mail}}</span></td>
+      </tr>
+      <tr class="main-info-detail">
+        <th>attachment:</th>
+        <td><span class="mail-attach" ng-repeat="attach in mail.attachment"><a target="_blank" ng-href="{{attach.link}}">{{attach.label}}</a></span></td>
+      </tr>
+    </tbody>
+  </table>
+  <div ng-show="!visible" class="mail-info-ctrl">
+      <a href="javascript:void(0)" class="ui-button" ng-click="toggle()">Hide Detail</a>
+  </div>
+  <div class="mail-content" id="mailContent">
+    <div class="mail-edit-wrap">{{mail.content}}</div>
+  </div>
+</div>

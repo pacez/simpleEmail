@@ -3,26 +3,54 @@
 var app = angular.module('app', ['ngRoute']);
 
 //应用配置
-app.config(['$routeProvider',function($routeProvider) {
-  $routeProvider.when('/inbox', {
-    templateUrl: _VIEWPATH+'/inbox.html',
-    controller: 'inboxCtrl'
-  }).when('/inbox/:id',{
-    templateUrl: _VIEWPATH+'/inboxDetail.html',
-    controller: 'inboxDetailCtrl'
-  }).when('/draft',{
-    templateUrl: _VIEWPATH+'/draft.html',
-    controller: 'draftCtrl'
-  }).when('/draft/:id',{
-    templateUrl: _VIEWPATH+'/draftDetail.html',
-    controller: 'draftDetailCtrl'
-  }).when('/compose',{
-    templateUrl: _VIEWPATH+'/compose.html',
-    controller: 'draftDetailCtrl'
-  }).otherwise({
-    redirectTo: '/inbox'
-  });
-}]);;
+if(_PLATFORM.isPc()){
+  //PC端路由表
+  app.config(['$routeProvider',function($routeProvider) {
+    $routeProvider.when('/inbox', {
+      templateUrl: _VIEWPATH+'/inbox.html',
+      controller: 'inboxCtrl'
+    }).when('/inbox/:id',{
+      templateUrl: _VIEWPATH+'/inboxDetail.html',
+      controller: 'inboxDetailCtrl'
+    }).when('/draft',{
+      templateUrl: _VIEWPATH+'/draft.html',
+      controller: 'draftCtrl'
+    }).when('/draft/:id',{
+      templateUrl: _VIEWPATH+'/draftDetail.html',
+      controller: 'draftDetailCtrl'
+    }).when('/compose',{
+      templateUrl: _VIEWPATH+'/compose.html',
+      controller: 'draftDetailCtrl'
+    }).otherwise({
+      redirectTo: '/inbox'
+    });
+  }]);
+}else{
+  //移动端路由
+  app.config(['$routeProvider',function($routeProvider) {
+    $routeProvider.when('/', {
+      templateUrl: _VIEWPATH+'/menu.html',
+      controller: 'inboxCtrl'
+    }).when('/inbox',{
+      templateUrl: _VIEWPATH+'/inbox.html',
+      controller: 'inboxDetailCtrl'
+    }).when('/inbox/:id',{
+      templateUrl: _VIEWPATH+'/inboxDetail.html',
+      controller: 'inboxDetailCtrl'
+    }).when('/draft',{
+      templateUrl: _VIEWPATH+'/draft.html',
+      controller: 'draftCtrl'
+    }).when('/draft/:id',{
+      templateUrl: _VIEWPATH+'/draftDetail.html',
+      controller: 'draftDetailCtrl'
+    }).when('/compose',{
+      templateUrl: _VIEWPATH+'/compose.html',
+      controller: 'draftDetailCtrl'
+    }).otherwise({
+      redirectTo: '/'
+    });
+  }]);
+}
 
 //自定义邮件过滤器，通过key,value过淲数据
 //考虑效率问题，实际开发过程中，过滤由异步请求完成

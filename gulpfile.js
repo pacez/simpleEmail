@@ -50,7 +50,7 @@ var lessFiles=[
 
 //编译less,除normalize以外的less都进行编译
 gulp.task('build-less',function(){
-  gulp.src(lessFiles).pipe(less()).on('error',function(e){console.log(e)}).pipe(gulp.dest(buildPath.css+"/"));
+  gulp.src(lessFiles).pipe(less({compress:true})).on('error',function(e){console.log(e)}).pipe(gulp.dest(buildPath.css+"/"));
 });
 
 //监控文件变化

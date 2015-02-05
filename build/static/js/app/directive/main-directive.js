@@ -22,7 +22,7 @@ app.directive('mainMenu', function() {
                 }
           });
         }
-      }
+      };
   return options;
 });
 
@@ -30,7 +30,7 @@ app.directive('templateHeader', function() {
   var options={
         templateUrl: _TEMPLATEPATH+'/header.html',
         replace: true
-      }
+      };
   return options;
 });
 
@@ -38,7 +38,7 @@ app.directive('templateFooter', function() {
   var options={
         templateUrl: _TEMPLATEPATH+'/footer.html',
         replace: true
-      }
+      };
   return options;
 });
 
@@ -46,7 +46,7 @@ app.directive('templateMenu', function() {
   var options={
         templateUrl: _TEMPLATEPATH+'/menu.html',
         replace: true
-      }
+      };
   return options;
 });
 app.directive('templateContent', function() {
@@ -54,9 +54,11 @@ app.directive('templateContent', function() {
         templateUrl: _TEMPLATEPATH+'/content.html',
         replace: true,
         link: function(){
-          setMainHeight('mailMain',16);
+          if(_PLATFORM.isPc()){
+            $('#content').height($(window).height()-92);
+          }
         }
-      }
+      };
   return options;
 });
 
@@ -64,7 +66,7 @@ app.directive('inboxList', function() {
   var options={
         templateUrl: _TEMPLATEPATH+'/inboxList.html',
         replace: true
-      }
+      };
   return options;
 });
 
@@ -72,6 +74,6 @@ app.directive('draftList', function() {
   var options={
         templateUrl: _TEMPLATEPATH+'/draftList.html',
         replace: true
-      }
+      };
   return options;
 });

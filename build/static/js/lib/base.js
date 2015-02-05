@@ -62,10 +62,15 @@ _TEMPLATEPATH= '/build/static/template/'+_PLATFORM.DEVICETYPE;
 /*=======================业务层方法===============================*/
 
 //设置mail内容区域高度
-var setMainHeight=function(id,deviator){
+var setMainHeight=function(id,deviator,isMinHeight){
     var $mailContent=$("#"+id),
         deviator=$("#footer").height()+15+(deviator ? deviator : 0),
         getMailContentHeight=$(window).height()-$mailContent.offset().top-deviator;
+
+    if(isMinHeight){
+      $mailContent.css('min-height',getMailContentHeight+'px');
+      return;
+    }
     $mailContent.height(getMailContentHeight);
 };
 
@@ -96,7 +101,7 @@ var mailList=[];
       mailList.push({
         id: i,
         isUnread: i%3==0 ? true : false,
-        subject: i+' Thanks for you',
+        subject: 'Thanks for you '+i,
         sentTime: '2015-01-29 12:10',
         from:{name:'Pace Zhong', mail:'pacez@domain-inc.com'},
         to:[
@@ -119,7 +124,7 @@ var draftList=[];
     for(var i=1; i<23; i++){
       draftList.push({
         id: i,
-        subject: i+' Draft',
+        subject: 'Draft '+i,
         sentTime: '2015-01-29 12:10',
         from:{name:'Pace Zhong', mail:'pacez@domain-inc.com'},
         to:[
