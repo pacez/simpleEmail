@@ -25,9 +25,16 @@ var buildPath={
   }
 };
 
+
+var cleanBuild=[
+  buildPath.lib+'/*',
+  '!'+buildPath.lib+'/base.js',
+  buildPath.css+'/*.css'
+];
+
 //清除lib目录
 gulp.task('clean-build',function(){
-  gulp.src([buildPath.lib+'/*',buildPath.css+'/*.css']).pipe(clean()).on('error',function(e){console.log(e)});
+  gulp.src(cleanBuild).pipe(clean()).on('error',function(e){console.log(e)});
 })
 
 //拷贝并压缩bower构建的基础js库到lib文件夹下
