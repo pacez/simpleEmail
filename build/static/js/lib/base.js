@@ -36,17 +36,20 @@ var _TOOLS={
 /*
 * 设置不同设备类型的class root
 */
-$(function(){
-  if(_PLATFORM.isPc()){
-    $("body").addClass('device-pc');
-    if(/msie 6.0|msie 7.0|msie 8.0/i.test(_PLATFORM.USERAGENT)){
-      alert("OMG！亲，你是火星来的吧！都20XX年了 ？快去下载最NB的Chrome吧！")
-      window.location.href='http://www.google.cn/chrome/browser/desktop/index.html';
-    }
-  }else{
-    $("body").addClass('device-mobile');
+
+if(_PLATFORM.isPc()){
+  if(/msie 6.0|msie 7.0|msie 8.0/i.test(_PLATFORM.USERAGENT)){
+    alert("OMG！亲，你是火星来的吧！都20XX年了 ？快去下载最NB的Chrome吧！")
+    window.location.href='http://www.google.cn/chrome/browser/desktop/index.html';
   }
-})
+  $(function(){
+    $("body").addClass('device-pc');
+  });
+}else{
+  $(function(){
+    $("body").addClass('device-mobile');
+  });
+}
 
 
 /*
