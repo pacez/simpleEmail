@@ -13,5 +13,8 @@ Angularjs鱼骨头书中提到的使用Angular开发邮件系统会变得so easy
 </ol>
 类似的情况非常多...
 
+###跨平台实践：
+判断平台信息(<a href="https://github.com/pacez/mt">mt.js</a>)加载不同视图，以实现在PC端与移动端最佳的用户体验，经实践，该方案可性，且自由度较高，寻找机会应用于项目实践中.
+
 访问地址：<a href="http://pacez.github.io/simpleMail/web/index.htm">http://pacez.github.io/simpleMail/web/index.html</a>
 
